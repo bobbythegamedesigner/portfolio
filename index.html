@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bobby White — Game Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0e0d0b;
+    --ink-muted: #5a5852;
+    --ink-faint: #a09c94;
+    --surface: #f5f3ee;
+    --surface-alt: #eceae3;
+    --accent: #c8440e;
+    --accent-light: #f2e8e2;
+    --accent-dark: #8f2d07;
+    --white: #ffffff;
+    --radius: 4px;
+    --radius-lg: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background: rgba(245, 243, 238, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(14,13,11,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--surface) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+  /* Mobile nav toggle */
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .hero-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-bio {
+    font-size: 1.0625rem;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--ink);
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border: 1.5px solid var(--ink);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--surface);
+    transform: translateY(-1px);
+  }
+
+  /* Hero right side — decorative stats */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid rgba(14,13,11,0.08);
+  }
+
+  .stat-card.accent {
+    background: var(--accent);
+    color: var(--white);
+    grid-column: span 2;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    color: inherit;
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+    line-height: 1.3;
+  }
+
+  .stat-card.accent .stat-label { color: rgba(255,255,255,0.75); }
+
+  .stat-card.accent .stat-num { color: var(--white); }
+
+  /* ─── SKILLS TICKER ─── */
+  .ticker-wrap {
+    background: var(--ink);
+    color: var(--surface);
+    padding: 0.875rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 28s linear infinite;
+    gap: 0;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .ticker-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2rem; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+    line-height: 1.05;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--white); }
+
+  .exp-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--surface-alt);
+    margin-left: 1rem;
+  }
+
+  .exp-item {
+    padding: 0 0 3rem 2.5rem;
+    position: relative;
+    cursor: default;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--surface-alt);
+    border: 2px solid var(--white);
+    transition: background 0.2s;
+  }
+
+  .exp-item:hover::before { background: var(--accent); }
+
+  .exp-item:last-child { padding-bottom: 0; }
+
+  .exp-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .exp-badge {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    letter-spacing: 0.03em;
+  }
+
+  .exp-role {
+    font-size: 0.9375rem;
+    color: var(--ink-muted);
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-dates {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .exp-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .exp-item.open .exp-detail { max-height: 600px; }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-bullets li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .exp-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--accent);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .exp-expand svg {
+    transition: transform 0.3s;
+  }
+
+  .exp-item.open .exp-expand svg { transform: rotate(180deg); }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--surface); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid rgba(14,13,11,0.07);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--ink); color: var(--surface); }
+
+  #projects .section-label { color: var(--accent); }
+  #projects .section-title { color: var(--white); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-card:hover {
+    background: rgba(200, 68, 14, 0.12);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .project-tag {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .project-studio {
+    font-size: 0.8125rem;
+    color: rgba(245,243,238,0.5);
+  }
+
+  .project-desc {
+    font-size: 0.9375rem;
+    color: rgba(245,243,238,0.7);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .project-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.625rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(245,243,238,0.7);
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.0625rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .highlight-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 48px;
+  }
+
+  .highlight-text strong {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .highlight-text span {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .contact-inner { max-width: 640px; margin: 0 auto; }
+
+  .contact-inner .section-label { justify-content: center; }
+  .contact-inner .section-label::before { display: none; }
+
+  .contact-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .contact-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .contact-sub {
+    font-size: 1.0625rem;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(245,243,238,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8125rem;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--surface);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      z-index: 99;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links a { font-size: 1.25rem; }
+
+    .nav-burger { display: flex; z-index: 101; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    section { padding: 4rem 1.25rem; }
+
+    #hero { padding: 6rem 1.25rem 3rem; }
+  }
+
+  @media (max-width: 480px) {
+    .stat-card.accent { grid-column: span 2; }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Bobby<span>.</span>White</a>
+  <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+    <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+    <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Game Designer</p>
+      <h1 class="hero-name">Bobby<br>White</h1>
+      <p class="hero-title">Lead Designer · Narrative · UX/UI · Roblox · Mobile</p>
+      <p class="hero-bio">
+        I craft player experiences that stick — from narrative-driven VR to Roblox metaverse and mobile PvP card battlers. I specialise in making complex systems feel intuitive and stories feel alive.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View My Work →</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-stats fade-in">
+      <div class="stat-card">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years of industry experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Studios collaborated with</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Shipped games & experiences</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-num">Lead Game Designer</div>
+        <div class="stat-label">Currently at Karta Games, London — building Roblox experiences with world-renowned IPs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot"></span>Narrative Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>UX / UI Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Level Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Game Writing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>FTUE & Onboarding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monetisation Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Live Ops</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Roblox Studio</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Unity</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Quest Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Figma</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Community Management</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>Narrative Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>UX / UI Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Level Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Game Writing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>FTUE & Onboarding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Monetisation Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Live Ops</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Roblox Studio</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Unity</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Quest Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Figma</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Community Management</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label fade-in">Career</p>
+    <h2 class="section-title fade-in">Where I've Shipped</h2>
+
+    <div class="exp-grid">
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Karta Games</span>
+          <span class="exp-badge">Current</span>
+        </div>
+        <div class="exp-role">Lead Game Designer · London (Remote)</div>
+        <div class="exp-dates">August 2025 – Present</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Manage and mentor a team of junior game designers, developing in-house practices and supporting career growth</li>
+            <li>Concepted and pitched to world-renowned IP stakeholders to secure contracts and design buy-in</li>
+            <li>Conducted workshops on Roblox platform understanding, brand recognition and cross-discipline alignment</li>
+            <li>Stepped in as Acting Project Manager — running daily stand-ups, managing resources and liaising with clients</li>
+            <li>Projects include: TWICE Square, TWICE Arena, Planet Hugo: Fashion Labs, Dribble Dash (Premier League), Beat Festival</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Brainspark Games</span>
+        </div>
+        <div class="exp-role">Lead Game Designer · London (Remote / Hybrid)</div>
+        <div class="exp-dates">September 2023 – July 2025</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Rebuilt the game's design from the ground up — core loops, feature mechanics and fundamental UX for an AR learning RPG</li>
+            <li>Implemented design approval processes and pre-production pipeline from scratch</li>
+            <li>Adapted curriculum content from Subject Matter Experts into fun, narrative-driven minigames</li>
+            <li>Crafted UX/UI wireframe prototypes and collaborated closely with art and engineering departments</li>
+            <li>Improved studio development processes, cross-department collaboration and culture</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Neon Play</span>
+        </div>
+        <div class="exp-role">Game Designer · Cirencester (Remote)</div>
+        <div class="exp-dates">July 2023 – June 2024</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Designed the flagship IP concept from scratch — Rivals Duel, a mobile PvP card battler</li>
+            <li>Overhauled the studio's monetisation strategy using Roblox monetisation expertise</li>
+            <li>Led UX/UI wireframing and FTUE improvements across the studio's catalogue</li>
+            <li>Served as Community Manager and Social Media face for the expanding Discord</li>
+            <li>Developed the studio's first major live-ops production pipeline</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Gamefam</span>
+        </div>
+        <div class="exp-role">Game Designer · Los Angeles, USA (Remote)</div>
+        <div class="exp-dates">October 2021 – July 2023</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Led design on He-Man and the Masters of the Universe, He-Man Battle Sim, He-Man Arena Fighter on Roblox</li>
+            <li>Content, level, feature, narrative design for SpongeBob Simulator on Roblox</li>
+            <li>Liaised directly with Mattel brand stakeholders on creative direction</li>
+            <li>Play-tested and captured marketing assets for Hot Wheels: Open World</li>
+            <li>Created a game design documentation template that vastly improved studio-wide systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Collision Studios</span>
+        </div>
+        <div class="exp-role">Game Designer · USA (Remote Contractor)</div>
+        <div class="exp-dates">October 2021 – July 2023</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Redesigned tutorial and FTUE for the soft relaunch of Terra Alia (language learning RPG) and its Nintendo Switch release</li>
+            <li>Narrative dialogue improvements and localisation QA (English to French)</li>
+            <li>Managed influencer integrations and UGC campaigns, driving high-volume impressions</li>
+            <li>Copywriting for the game's advertising campaign</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-meta">
+          <span class="exp-company">Kando Outsourcing</span>
+        </div>
+        <div class="exp-role">Content Designer & Game Designer</div>
+        <div class="exp-dates">Earlier career</div>
+        <button class="exp-expand" tabindex="-1">
+          Details
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="exp-detail">
+          <ul class="exp-bullets">
+            <li>Narrative design, quest design, enemy naming, item naming, UI wireframing and balancing for Heroes Idle Dungeons (mobile)</li>
+            <li>Onboarded and mentored a fellow designer, collaborating on narrative and quest design</li>
+            <li>Feature mechanics, level design, narrative and convention showcasing for Super Undercover Slime Agent 2</li>
+            <li>Concept, documentation and VR wave shooter design for Everything Against Us — showcased at gaming conventions</li>
+            <li>Mentored a junior designer in systems, feature and narrative design principles</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label fade-in">Toolkit</p>
+    <h2 class="section-title fade-in">What I Bring</h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">✦</div>
+        <div class="skill-name">Narrative Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◈</div>
+        <div class="skill-name">UX / UI Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⬡</div>
+        <div class="skill-name">Level Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">✎</div>
+        <div class="skill-name">Game Writing</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊛</div>
+        <div class="skill-name">FTUE & Tutorial Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">₿</div>
+        <div class="skill-name">Monetisation Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⟳</div>
+        <div class="skill-name">Live Ops Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊕</div>
+        <div class="skill-name">Quest Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◱</div>
+        <div class="skill-name">World & Content Design</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⚙</div>
+        <div class="skill-name">Roblox Studio</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">△</div>
+        <div class="skill-name">Unity</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⬚</div>
+        <div class="skill-name">Figma</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">♟</div>
+        <div class="skill-name">Game Design Documentation</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◎</div>
+        <div class="skill-name">Community Management</div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊞</div>
+        <div class="skill-name">Content Marketing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label fade-in">Work</p>
+    <h2 class="section-title fade-in">Games I've Helped Build</h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Roblox · Karta Games</div>
+        <div class="project-title">TWICE Square / TWICE Arena</div>
+        <div class="project-studio">Lead Game Designer</div>
+        <div class="project-desc">Branded Roblox experiences for global K-pop supergroup TWICE. Concept, design, and client management working directly with the brand.</div>
+        <div class="project-chips">
+          <span class="chip">Brand IP</span>
+          <span class="chip">Concept Design</span>
+          <span class="chip">Client Relations</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Roblox · Gamefam</div>
+        <div class="project-title">He-Man & the Masters of the Universe</div>
+        <div class="project-studio">Game Designer</div>
+        <div class="project-desc">Three interconnected He-Man experiences (main world, Battle Sim, Arena Fighter). Led balancing, narrative, and level design liaising with Mattel brand team.</div>
+        <div class="project-chips">
+          <span class="chip">Mattel IP</span>
+          <span class="chip">Narrative</span>
+          <span class="chip">Level Design</span>
+          <span class="chip">Balancing</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Mobile · Neon Play</div>
+        <div class="project-title">Rivals Duel: Card Battler</div>
+        <div class="project-studio">Game Designer (Concept to Production)</div>
+        <div class="project-desc">Studio flagship IP designed from scratch. Full economy, UX/UI, character design, live ops pipeline and community management. Also led the social media marketing.</div>
+        <div class="project-chips">
+          <span class="chip">PvP Card Battler</span>
+          <span class="chip">Economy Design</span>
+          <span class="chip">Live Ops</span>
+          <span class="chip">UX/UI</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">PC / Switch · Collision Studios</div>
+        <div class="project-title">Terra Alia</div>
+        <div class="project-studio">Game Designer (Relaunch & Switch Port)</div>
+        <div class="project-desc">Narrative improvements, FTUE redesign, localisation QA and influencer campaign management for the soft relaunch and Switch release of this language-learning RPG.</div>
+        <div class="project-chips">
+          <span class="chip">FTUE Design</span>
+          <span class="chip">Localisation QA</span>
+          <span class="chip">Influencer Marketing</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Roblox · Gamefam</div>
+        <div class="project-title">SpongeBob Simulator</div>
+        <div class="project-studio">Game Designer</div>
+        <div class="project-desc">Content, level and narrative design for one of Roblox's most recognisable branded IP experiences. Worked closely with the Nickelodeon brand team on creative direction.</div>
+        <div class="project-chips">
+          <span class="chip">Nickelodeon IP</span>
+          <span class="chip">Content Design</span>
+          <span class="chip">Narrative</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Mobile · Brainspark Games</div>
+        <div class="project-title">AR Learning RPG Platform</div>
+        <div class="project-studio">Lead Game Designer</div>
+        <div class="project-desc">Built the game's design entirely from scratch. UK curriculum-aligned content adapted with Subject Matter Experts into an engaging AR RPG experience on mobile.</div>
+        <div class="project-chips">
+          <span class="chip">AR / Mobile</span>
+          <span class="chip">EdTech</span>
+          <span class="chip">Curriculum Design</span>
+          <span class="chip">UX/UI</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">VR · Kando Outsourcing</div>
+        <div class="project-title">Everything Against Us</div>
+        <div class="project-studio">Game Designer</div>
+        <div class="project-desc">VR wave shooter experience showcased and monetised at gaming conventions. Responsible for concept, documentation, playtesting and mentoring a junior designer.</div>
+        <div class="project-chips">
+          <span class="chip">VR</span>
+          <span class="chip">Convention Showcase</span>
+          <span class="chip">Mentoring</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-tag">Mobile · Kando Outsourcing</div>
+        <div class="project-title">Heroes Idle Dungeons</div>
+        <div class="project-studio">Content Designer & Game Designer</div>
+        <div class="project-desc">Full narrative design, quest design, item naming, UI wireframing, balancing and mobile optimisation playtesting. Onboarded another designer and collaborated throughout.</div>
+        <div class="project-chips">
+          <span class="chip">Idle RPG</span>
+          <span class="chip">Narrative</span>
+          <span class="chip">Quest Design</span>
+          <span class="chip">UI Wireframing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label fade-in">About</p>
+        <h2 class="section-title fade-in" style="margin-bottom: 1.5rem;">A Designer Who Cares About the Player</h2>
+        <p>My core passion has always been narrative — from my early work on a Visual Novel QA, to VR game writing, to the quest and dialogue systems that shaped successful Roblox worlds and mobile games. I believe stories make systems feel meaningful.</p>
+        <p>Beyond writing, I bring a cross-disciplinary perspective: I've wired UX prototypes in Figma, sat in engineering standups, managed influencer campaigns, run live ops pipelines and covered for producers. I know what a game needs to actually ship, and I know how to make the team around me better.</p>
+        <p>I've worked with some of the most recognisable IPs in the world — Mattel, Nickelodeon, global music acts — and I understand how to balance creative vision with stakeholder requirements.</p>
+      </div>
+
+      <div class="about-highlights fade-in">
+        <div class="highlight-item">
+          <div class="highlight-num">01</div>
+          <div class="highlight-text">
+            <strong>Narrative at the Core</strong>
+            <span>From VR shooters to idle mobile RPGs — every experience I touch gets a story worth following.</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num">02</div>
+          <div class="highlight-text">
+            <strong>Cross-Studio Leadership</strong>
+            <span>Mentored junior designers, built design documentation systems, and covered PM duties when the team needed it.</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num">03</div>
+          <div class="highlight-text">
+            <strong>Brand IP Experience</strong>
+            <span>Shipped experiences for Mattel, Nickelodeon, Premier League and major music acts on Roblox and beyond.</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num">04</div>
+          <div class="highlight-text">
+            <strong>Full-Spectrum Design</strong>
+            <span>Concept → documentation → wireframes → implementation liaison → playtesting → live ops. I cover the whole pipeline.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="contact-title">Let's Make<br>Something <em>Great</em></h2>
+    <p class="contact-sub">
+      Whether you're building the next big Roblox experience, a mobile narrative game or anything in between — I'd love to hear about it.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="btn-primary">Email Me →</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Bobby White · Game Designer · Built with purpose.</p>
+</footer>
+
+<script>
+  // Nav toggle
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // Experience accordion
+  function toggleExp(el) {
+    const wasOpen = el.classList.contains('open');
+    document.querySelectorAll('.exp-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) el.classList.add('open');
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
