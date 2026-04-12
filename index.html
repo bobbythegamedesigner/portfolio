@@ -540,6 +540,23 @@
     transform: translateY(-2px);
   }
 
+  a.project-card {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .project-link-hint {
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-top: auto;
+    padding-top: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  a.project-card:hover .project-link-hint { opacity: 1; }
+
   .project-tag {
     font-size: 0.6875rem;
     font-weight: 600;
@@ -779,7 +796,7 @@
       <h1 class="hero-name">Bobby<br>White</h1>
       <p class="hero-title">Lead Designer · Narrative · UX/UI · Roblox · Mobile</p>
       <p class="hero-bio">
-        I craft player experiences that stick — from narrative-driven VR to Roblox metaverse and mobile PvP card battlers. I specialise in making complex systems feel intuitive and stories feel alive.
+        I craft player experiences that stick, from narrative-driven VR to Roblox metaverse and mobile PvP card battlers. I specialise in making complex systems feel intuitive and stories feel alive.
       </p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View My Work →</a>
@@ -802,7 +819,7 @@
       </div>
       <div class="stat-card accent">
         <div class="stat-num">Lead Game Designer</div>
-        <div class="stat-label">Currently at Karta Games, London — building Roblox experiences with world-renowned IPs</div>
+        <div class="stat-label">Currently at Karta Games, London. Building Roblox experiences with world-renowned IPs</div>
       </div>
     </div>
   </div>
@@ -863,7 +880,7 @@
             <li>Manage and mentor a team of junior game designers, developing in-house practices and supporting career growth</li>
             <li>Concepted and pitched to world-renowned IP stakeholders to secure contracts and design buy-in</li>
             <li>Conducted workshops on Roblox platform understanding, brand recognition and cross-discipline alignment</li>
-            <li>Stepped in as Acting Project Manager — running daily stand-ups, managing resources and liaising with clients</li>
+            <li>Stepped in as Acting Project Manager, running daily stand-ups, managing resources and liaising with clients</li>
             <li>Projects include: TWICE Square, TWICE Arena, Planet Hugo: Fashion Labs, Dribble Dash (Premier League), Beat Festival</li>
           </ul>
         </div>
@@ -881,7 +898,7 @@
         </button>
         <div class="exp-detail">
           <ul class="exp-bullets">
-            <li>Rebuilt the game's design from the ground up — core loops, feature mechanics and fundamental UX for an AR learning RPG</li>
+            <li>Rebuilt the game's design from the ground up: core loops, feature mechanics and fundamental UX for an AR learning RPG</li>
             <li>Implemented design approval processes and pre-production pipeline from scratch</li>
             <li>Adapted curriculum content from Subject Matter Experts into fun, narrative-driven minigames</li>
             <li>Crafted UX/UI wireframe prototypes and collaborated closely with art and engineering departments</li>
@@ -902,7 +919,7 @@
         </button>
         <div class="exp-detail">
           <ul class="exp-bullets">
-            <li>Designed the flagship IP concept from scratch — Rivals Duel, a mobile PvP card battler</li>
+            <li>Designed the flagship IP concept from scratch: Rivals Duel, a mobile PvP card battler</li>
             <li>Overhauled the studio's monetisation strategy using Roblox monetisation expertise</li>
             <li>Led UX/UI wireframing and FTUE improvements across the studio's catalogue</li>
             <li>Served as Community Manager and Social Media face for the expanding Discord</li>
@@ -967,7 +984,7 @@
             <li>Narrative design, quest design, enemy naming, item naming, UI wireframing and balancing for Heroes Idle Dungeons (mobile)</li>
             <li>Onboarded and mentored a fellow designer, collaborating on narrative and quest design</li>
             <li>Feature mechanics, level design, narrative and convention showcasing for Super Undercover Slime Agent 2</li>
-            <li>Concept, documentation and VR wave shooter design for Everything Against Us — showcased at gaming conventions</li>
+            <li>Concept, documentation and VR wave shooter design for Everything Against Us, showcased at gaming conventions</li>
             <li>Mentored a junior designer in systems, feature and narrative design principles</li>
           </ul>
         </div>
@@ -1054,7 +1071,7 @@
     <h2 class="section-title fade-in">Games Worlds I've Shaped</h2>
     <div class="projects-grid">
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://www.roblox.com/games/12202678406/TWICE-ARENA" target="_blank" rel="noopener">
         <div class="project-tag">Roblox · Karta Games</div>
         <div class="project-title">TWICE Square / TWICE Arena</div>
         <div class="project-studio">Lead Game Designer</div>
@@ -1064,22 +1081,52 @@
           <span class="chip">Concept Design</span>
           <span class="chip">Client Relations</span>
         </div>
-      </div>
+        <div class="project-link-hint">Play on Roblox ↗</div>
+      </a>
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://www.roblox.com/games/16354460415/PLANET-HUGO-Fashion-Lab" target="_blank" rel="noopener">
+        <div class="project-tag">Roblox · Karta Games</div>
+        <div class="project-title">Planet Hugo: Fashion Labs</div>
+        <div class="project-studio">Lead Game Designer</div>
+        <div class="project-desc">Branded fashion and lifestyle experience on Roblox. Concept, design and client management, delivering a creative world that matched the Hugo Boss brand vision.</div>
+        <div class="project-chips">
+          <span class="chip">Hugo Boss IP</span>
+          <span class="chip">Fashion / Lifestyle</span>
+          <span class="chip">Concept Design</span>
+          <span class="chip">Client Relations</span>
+        </div>
+        <div class="project-link-hint">Play on Roblox ↗</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://www.roblox.com/games/109361054253806/Dribble-Dash" target="_blank" rel="noopener">
+        <div class="project-tag">Roblox · Karta Games</div>
+        <div class="project-title">Dribble Dash (Premier League)</div>
+        <div class="project-studio">Lead Game Designer</div>
+        <div class="project-desc">Official Premier League experience on Roblox. Fast-paced football gameplay designed to capture the energy of the Premier League brand for a global Roblox audience.</div>
+        <div class="project-chips">
+          <span class="chip">Premier League IP</span>
+          <span class="chip">Sports</span>
+          <span class="chip">Feature Design</span>
+          <span class="chip">Client Relations</span>
+        </div>
+        <div class="project-link-hint">Play on Roblox ↗</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://www.roblox.com/games/12396541791/He-Man-Combat-Simulator" target="_blank" rel="noopener">
         <div class="project-tag">Roblox · Gamefam</div>
-        <div class="project-title">He-Man & the Masters of the Universe</div>
+        <div class="project-title">He-Man and the Masters of the Universe</div>
         <div class="project-studio">Game Designer</div>
-        <div class="project-desc">Three itterative He-Man experiences (main world, Battle Sim, Arena Fighter). Led balancing, narrative, and level design liaising with Mattel brand team.</div>
+        <div class="project-desc">Three iterative He-Man experiences (main world, Battle Sim, Arena Fighter). Led balancing, narrative, and level design liaising with the Mattel brand team throughout.</div>
         <div class="project-chips">
           <span class="chip">Mattel IP</span>
           <span class="chip">Narrative</span>
           <span class="chip">Level Design</span>
           <span class="chip">Balancing</span>
         </div>
-      </div>
+        <div class="project-link-hint">Play on Roblox ↗</div>
+      </a>
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://youtube.com/playlist?list=PL1FHcX8QtVw7IjJNkvFdzetrmzFNkeJAc&si=dCi2S3B2yVbIxTVL" target="_blank" rel="noopener">
         <div class="project-tag">Mobile · Neon Play</div>
         <div class="project-title">Rivals Duel: Card Battler</div>
         <div class="project-studio">Game Designer (Concept to Production)</div>
@@ -1090,21 +1137,23 @@
           <span class="chip">Live Ops</span>
           <span class="chip">UX/UI</span>
         </div>
-      </div>
+        <div class="project-link-hint">Watch on YouTube ↗</div>
+      </a>
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://store.steampowered.com/app/1183580/Terra_Alia_The_Language_Discovery_RPG/" target="_blank" rel="noopener">
         <div class="project-tag">PC / Switch · Collision Studios</div>
         <div class="project-title">Terra Alia</div>
-        <div class="project-studio">Game Designer (Relaunch & Switch Port)</div>
+        <div class="project-studio">Game Designer (Relaunch and Switch Port)</div>
         <div class="project-desc">Narrative improvements, FTUE redesign, localisation QA and influencer campaign management for the soft relaunch and Switch release of this language-learning RPG.</div>
         <div class="project-chips">
           <span class="chip">FTUE Design</span>
           <span class="chip">Localisation QA</span>
           <span class="chip">Influencer Marketing</span>
         </div>
-      </div>
+        <div class="project-link-hint">View on Steam ↗</div>
+      </a>
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://www.roblox.com/games/14696958202/SpongeBob-Simulator" target="_blank" rel="noopener">
         <div class="project-tag">Roblox · Gamefam</div>
         <div class="project-title">SpongeBob Simulator</div>
         <div class="project-studio">Game Designer</div>
@@ -1114,9 +1163,10 @@
           <span class="chip">Content Design</span>
           <span class="chip">Narrative</span>
         </div>
-      </div>
+        <div class="project-link-hint">Play on Roblox ↗</div>
+      </a>
 
-      <div class="project-card fade-in">
+      <a class="project-card fade-in" href="https://brainsparkgames.com/" target="_blank" rel="noopener">
         <div class="project-tag">Mobile · Brainspark Games</div>
         <div class="project-title">RPG + AR Learning Platform</div>
         <div class="project-studio">Lead Game Designer</div>
@@ -1127,7 +1177,22 @@
           <span class="chip">Curriculum Design</span>
           <span class="chip">UX/UI</span>
         </div>
-      </div>
+        <div class="project-link-hint">Visit Brainspark Games ↗</div>
+      </a>
+
+      <a class="project-card fade-in" href="https://store.steampowered.com/app/3017040/Kando_Realm/" target="_blank" rel="noopener">
+        <div class="project-tag">PC · Kando Outsourcing</div>
+        <div class="project-title">Kando Realm</div>
+        <div class="project-studio">Content Designer</div>
+        <div class="project-desc">Indie MMO RPG on PC. Contributed to playtesting, QA and narrative design feedback, helping shape the world and story of this ambitious independent project.</div>
+        <div class="project-chips">
+          <span class="chip">MMO RPG</span>
+          <span class="chip">Narrative Feedback</span>
+          <span class="chip">QA</span>
+          <span class="chip">Playtesting</span>
+        </div>
+        <div class="project-link-hint">View on Steam ↗</div>
+      </a>
 
       <div class="project-card fade-in">
         <div class="project-tag">VR · Kando Outsourcing</div>
@@ -1144,7 +1209,7 @@
       <div class="project-card fade-in">
         <div class="project-tag">Mobile · Kando Outsourcing</div>
         <div class="project-title">Heroes Idle Dungeons</div>
-        <div class="project-studio">Content Designer & Game Designer</div>
+        <div class="project-studio">Content Designer and Game Designer</div>
         <div class="project-desc">Full narrative design, quest design, item naming, UI wireframing, balancing and mobile optimisation playtesting. Onboarded another designer and collaborated throughout.</div>
         <div class="project-chips">
           <span class="chip">Idle RPG</span>
@@ -1165,9 +1230,9 @@
       <div class="about-text">
         <p class="section-label fade-in">About</p>
         <h2 class="section-title fade-in" style="margin-bottom: 1.5rem;">A Designer Who Cares About the Player</h2>
-        <p>My core passion has always been narrative — from my work on a Visual Novel QA, to VR game writing, to the quest and dialogue systems that shaped successful Roblox worlds and mobile games. I believe stories make systems feel meaningful.</p>
+        <p>My core passion has always been narrative, from my work on a Visual Novel QA, to VR game writing, to the quest and dialogue systems that shaped successful Roblox worlds and mobile games. I believe stories make systems feel meaningful.</p>
         <p>Beyond writing, I bring a cross-disciplinary perspective: I've wired UX prototypes in Figma, sat in engineering standups, managed influencer campaigns, run live ops pipelines and covered for producers. I know what a game needs to actually ship, and I know how to make the team around me better.</p>
-        <p>I've worked with some of the most recognisable IPs in the world — Mattel, Nickelodeon, global music acts — and I understand how to balance creative vision with stakeholder requirements.</p>
+        <p>I've worked with some of the most recognisable IPs in the world, including Mattel, Nickelodeon and global music acts, and I understand how to balance creative vision with stakeholder requirements.</p>
       </div>
 
       <div class="about-highlights fade-in">
@@ -1175,7 +1240,7 @@
           <div class="highlight-num">01</div>
           <div class="highlight-text">
             <strong>Narrative at the Core</strong>
-            <span>From VR shooters to idle mobile RPGs — every experience I touch gets a story worth following.</span>
+            <span>From VR shooters to idle mobile RPGs, every experience I touch gets a story worth following.</span>
           </div>
         </div>
         <div class="highlight-item">
@@ -1210,11 +1275,11 @@
     <p class="section-label">Contact</p>
     <h2 class="contact-title">Let's Make<br>Something <em>Great</em></h2>
     <p class="contact-sub">
-      Whether you're building the next big Roblox experience, a mobile narrative game or anything in between — I'd love to hear about it.
+      Whether you're building the next big Roblox experience, a mobile narrative game or anything in between, I'd love to hear about it.
     </p>
     <div class="contact-links">
       
-      <a href="mailto:bobbythewriter1@gmail.com" class="btn-primary">Email Me →</a>
+      <a href="/cdn-cgi/l/email-protection#9dfff2ffffe4e9f5f8eaeff4e9f8efacddfaf0fcf4f1b3fef2f0" class="btn-primary">Email Me →</a>
       
       <a href="https://www.linkedin.com/in/bobby-white-0ba5b721b/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
     </div>
@@ -1226,7 +1291,7 @@
   <p>© 2026 Bobby White · Game Designer · Built with purpose.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Nav toggle
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
@@ -1247,13 +1312,4 @@
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+        observer.unobserve(e.
