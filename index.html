@@ -757,6 +757,11 @@
   }
 
   /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .fade-in {
       opacity: 0;
@@ -1291,7 +1296,7 @@
   <p>© 2026 Bobby White · Game Designer · Built with purpose.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Nav toggle
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
@@ -1307,9 +1312,29 @@
     if (!wasOpen) el.classList.add('open');
   }
 
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.
+  // Scroll fade-in — marks everything visible immediately if observer isn't supported
+  function initFadeIn() {
+    const els = document.querySelectorAll('.fade-in');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => observer.observe(el));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFadeIn);
+  } else {
+    initFadeIn();
+  }
+</script>
+</body>
+</html>
