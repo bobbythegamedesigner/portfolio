@@ -796,18 +796,41 @@
     .nav-links {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--surface);
+      top: 64px;
+      left: 1rem;
+      right: 1rem;
+      background: var(--white);
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
+      align-items: stretch;
+      gap: 0;
       z-index: 99;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 32px rgba(14,13,11,0.15), 0 2px 8px rgba(14,13,11,0.08);
+      border: 1px solid rgba(14,13,11,0.08);
+      overflow: hidden;
+      padding: 0.5rem;
     }
 
     .nav-links.open { display: flex; }
 
-    .nav-links a { font-size: 1.25rem; }
+    .nav-links li { width: 100%; }
+
+    .nav-links a {
+      display: block;
+      font-size: 1rem;
+      padding: 0.875rem 1.25rem;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .nav-links a:hover { background: var(--surface); }
+
+    .nav-links .nav-cta {
+      margin-top: 0.25rem;
+      text-align: center;
+      background: var(--ink) !important;
+      color: var(--surface) !important;
+    }
 
     .nav-burger { display: flex; z-index: 101; }
 
@@ -869,6 +892,7 @@
     <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
     <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
     <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="https://bobbythedesigner1.wordpress.com/" target="_blank" rel="noopener" onclick="closeMenu()">Blog ↗</a></li>
     <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
   </ul>
 </nav>
