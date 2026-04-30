@@ -266,6 +266,29 @@
 
   .stat-card.accent .stat-num { color: var(--white); }
 
+<!-- SHOWREEL -->
+<section id="showreel" style="background: var(--ink); padding: 6rem 2rem;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <p style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem;">
+      <span style="display:block; width:20px; height:1px; background:var(--accent);"></span>
+      Showreel
+    </p>
+    <h2 style="font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-0.03em; color:white; margin-bottom:2.5rem; line-height:1.05;">
+      See It in Motion
+    </h2>
+    <div style="position:relative; width:100%; padding-bottom:56.25%; border-radius:12px; overflow:hidden;">
+      <iframe
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        src="https://www.youtube.com/embed/2izu1frDhH0?si=WSVxdcXj8KM-vVuE&autoplay=1&mute=1&loop=1&playlist=2izu1frDhH0&controls=0&modestbranding=1"
+        title="Bobby White Game Design Showreel"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
   
   /* ─── SKILLS TICKER ─── */
   .ticker-wrap {
@@ -484,33 +507,12 @@
     border: 1px solid rgba(14,13,11,0.07);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    user-select: none;
+    transition: border-color 0.2s, transform 0.2s;
   }
 
   .skill-card:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(200,68,14,0.1);
-  }
-
-  .skill-card.open {
-    border-color: var(--accent);
-    background: var(--accent-light);
-  }
-
-  .skill-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .skill-card-left {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
   }
 
   .skill-icon {
@@ -521,14 +523,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    margin-bottom: 1rem;
     font-size: 1rem;
-    transition: background 0.2s;
-  }
-
-  .skill-card.open .skill-icon {
-    background: var(--accent);
-    color: var(--white);
   }
 
   .skill-name {
@@ -537,58 +533,6 @@
     font-size: 0.9375rem;
     color: var(--ink);
     letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
-
-  .skill-chevron {
-    flex-shrink: 0;
-    color: var(--ink-faint);
-    transition: transform 0.3s, color 0.2s;
-  }
-
-  .skill-card.open .skill-chevron {
-    transform: rotate(180deg);
-    color: var(--accent);
-  }
-
-  .skill-projects {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, margin-top 0.35s ease;
-    margin-top: 0;
-  }
-
-  .skill-card.open .skill-projects {
-    max-height: 400px;
-    margin-top: 1rem;
-  }
-
-  .skill-projects ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(200,68,14,0.2);
-  }
-
-  .skill-projects li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8375rem;
-    color: var(--ink-muted);
-    line-height: 1.4;
-  }
-
-  .skill-projects li::before {
-    content: '';
-    display: block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
   }
 
   /* ─── PROJECTS ─── */
@@ -796,41 +740,18 @@
     .nav-links {
       display: none;
       position: fixed;
-      top: 64px;
-      left: 1rem;
-      right: 1rem;
-      background: var(--white);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--surface);
       flex-direction: column;
-      align-items: stretch;
-      gap: 0;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
       z-index: 99;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 8px 32px rgba(14,13,11,0.15), 0 2px 8px rgba(14,13,11,0.08);
-      border: 1px solid rgba(14,13,11,0.08);
-      overflow: hidden;
-      padding: 0.5rem;
     }
 
     .nav-links.open { display: flex; }
 
-    .nav-links li { width: 100%; }
-
-    .nav-links a {
-      display: block;
-      font-size: 1rem;
-      padding: 0.875rem 1.25rem;
-      border-radius: 8px;
-      width: 100%;
-    }
-
-    .nav-links a:hover { background: var(--surface); }
-
-    .nav-links .nav-cta {
-      margin-top: 0.25rem;
-      text-align: center;
-      background: var(--ink) !important;
-      color: var(--surface) !important;
-    }
+    .nav-links a { font-size: 1.25rem; }
 
     .nav-burger { display: flex; z-index: 101; }
 
@@ -892,7 +813,6 @@
     <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
     <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
     <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="https://bobbythedesigner1.wordpress.com/" target="_blank" rel="noopener" onclick="closeMenu()">Blog ↗</a></li>
     <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
   </ul>
 </nav>
@@ -926,9 +846,19 @@
         <div class="stat-num">15+</div>
         <div class="stat-label">Shipped games & experiences</div>
       </div>
-      <div class="stat-card accent">
+      <div class="stat-card">
+        <div class="stat-num">85M+</div>
+        <div class="stat-label">Contributed to Roblox experiences with 85M+ total visits</div>
+      </div>
+      <div class="stat-card accent" style="grid-column: span 2;">
         <div class="stat-num">Lead Game Designer</div>
         <div class="stat-label">Currently at Karta Games, London. Building Roblox experiences with world-renowned IPs</div>
+      </div>
+      <div class="stat-card" style="grid-column: span 2; display:flex; align-items:center; gap:1rem;">
+        <div>
+          <div class="stat-num" id="viewCount">...</div>
+          <div class="stat-label">Portfolio views</div>
+        </div>
       </div>
     </div>
   </div>
@@ -964,30 +894,6 @@
     <span class="ticker-item"><span class="ticker-dot"></span>Community Management</span>
   </div>
 </div>
-
-<!-- SHOWREEL -->
-<section id="showreel" style="background:var(--ink); padding:6rem 2rem;">
-  <div style="max-width:900px; margin:0 auto;">
-    <p style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem;">
-      <span style="display:block; width:20px; height:1px; background:var(--accent);"></span>
-      Showreel
-    </p>
-    <h2 style="font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-0.03em; color:white; margin-bottom:2.5rem; line-height:1.05;">
-      See It in Motion
-    </h2>
-    <div style="position:relative; width:100%; padding-bottom:56.25%; border-radius:12px; overflow:hidden;">
-      <iframe
-        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-        src="https://www.youtube.com/embed/CZZ6zj8RnfI?autoplay=1&mute=1&loop=1&playlist=CZZ6zj8RnfI&controls=0&modestbranding=1"
-        title="Bobby White Game Design Showreel"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
@@ -1133,284 +1039,66 @@
     <p class="section-label fade-in">Toolkit</p>
     <h2 class="section-title fade-in">What I Bring</h2>
     <div class="skills-grid">
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">✦</div>
-            <div class="skill-name">Narrative Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>He-Man Battle Simulator</li>
-            <li>Dead of the Sea</li>
-            <li>Heroes Idle Dungeons</li>
-            <li>Everything Against Us</li>
-            <li>Brainspark Games</li>
-            <li>TWICE Arena</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">✦</div>
+        <div class="skill-name">Narrative Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">◈</div>
-            <div class="skill-name">UX / UI Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>SpongeBob Simulator</li>
-            <li>Heroes Idle Dungeons</li>
-            <li>Everything Against Us</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-            <li>TWICE Arena</li>
-            <li>Dribble Dash (Premier League)</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◈</div>
+        <div class="skill-name">UX / UI Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⬡</div>
-            <div class="skill-name">Level Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>He-Man Battle Simulator</li>
-            <li>Brainspark Games</li>
-            <li>Dribble Dash (Premier League)</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⬡</div>
+        <div class="skill-name">Level Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">✎</div>
-            <div class="skill-name">Game Writing</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Dead of the Sea</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">✎</div>
+        <div class="skill-name">Game Writing</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⊛</div>
-            <div class="skill-name">FTUE & Tutorial Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Heroes Idle Dungeons</li>
-            <li>Terra Alia</li>
-            <li>He-Man Battle Simulator</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-            <li>Dribble Dash (Premier League)</li>
-            <li>Southbank Beat Festival</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊛</div>
+        <div class="skill-name">FTUE & Tutorial Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">₿</div>
-            <div class="skill-name">Monetisation Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Rivals Duel: Card Battler</li>
-            <li>TWICE Arena</li>
-            <li>Planet Hugo: Fashion Labs</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">₿</div>
+        <div class="skill-name">Monetisation Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⟳</div>
-            <div class="skill-name">Live Ops Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Rivals Duel: Card Battler</li>
-            <li>TWICE Arena</li>
-            <li>Planet Hugo: Fashion Labs</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⟳</div>
+        <div class="skill-name">Live Ops Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⊕</div>
-            <div class="skill-name">Quest Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Heroes Idle Dungeons</li>
-            <li>Brainspark Games</li>
-            <li>TWICE Arena</li>
-            <li>Planet Hugo: Fashion Labs</li>
-            <li>Southbank Beat Festival</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊕</div>
+        <div class="skill-name">Quest Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">◱</div>
-            <div class="skill-name">World & Content Design</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Heroes Idle Dungeons</li>
-            <li>He-Man Battle Simulator</li>
-            <li>SpongeBob Simulator</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-            <li>TWICE Arena</li>
-            <li>Dribble Dash (Premier League)</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◱</div>
+        <div class="skill-name">World & Content Design</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⚙</div>
-            <div class="skill-name">Roblox Studio</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>He-Man Battle Simulator</li>
-            <li>SpongeBob Simulator</li>
-            <li>Brainspark Games</li>
-            <li>TWICE Arena</li>
-            <li>Planet Hugo: Fashion Labs</li>
-            <li>Dribble Dash (Premier League)</li>
-            <li>Southbank Beat Festival</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⚙</div>
+        <div class="skill-name">Roblox Studio</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">△</div>
-            <div class="skill-name">Unity</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Heroes Idle Dungeons</li>
-            <li>Kando Realm</li>
-            <li>Everything Against Us</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">△</div>
+        <div class="skill-name">Unity</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⬚</div>
-            <div class="skill-name">Figma</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>He-Man Battle Simulator</li>
-            <li>SpongeBob Simulator</li>
-            <li>Dead of the Sea</li>
-            <li>Everything Against Us</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>Brainspark Games</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⬚</div>
+        <div class="skill-name">Figma</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">♟</div>
-            <div class="skill-name">Game Design Documentation</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>All Projects</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">♟</div>
+        <div class="skill-name">Game Design Documentation</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">◎</div>
-            <div class="skill-name">Community Management</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Terra Alia</li>
-            <li>Rivals Duel: Card Battler</li>
-            <li>TWICE Arena</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">◎</div>
+        <div class="skill-name">Community Management</div>
       </div>
-
-      <div class="skill-card fade-in" onclick="toggleSkill(this)">
-        <div class="skill-card-header">
-          <div class="skill-card-left">
-            <div class="skill-icon">⊞</div>
-            <div class="skill-name">Content Marketing</div>
-          </div>
-          <svg class="skill-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="skill-projects">
-          <ul>
-            <li>Rivals Duel: Card Battler</li>
-          </ul>
-        </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⊞</div>
+        <div class="skill-name">Content Marketing</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1651,13 +1339,6 @@
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  // Skill card toggle
-  function toggleSkill(el) {
-    const wasOpen = el.classList.contains('open');
-    document.querySelectorAll('.skill-card.open').forEach(c => c.classList.remove('open'));
-    if (!wasOpen) el.classList.add('open');
-  }
-
   // Experience accordion
   function toggleExp(el) {
     const wasOpen = el.classList.contains('open');
@@ -1689,5 +1370,19 @@
     initFadeIn();
   }
 </script>
+  // View counter via CountAPI
+  fetch('https://api.counterapi.dev/v1/bobbywhiteportfolio/visits/up')
+    .then(r => r.json())
+    .then(data => {
+      const el = document.getElementById('viewCount');
+      if (el && data.count) {
+        el.textContent = data.count.toLocaleString();
+      }
+    })
+    .catch(() => {
+      const el = document.getElementById('viewCount');
+      if (el) el.textContent = '--';
+    });
+
 </body>
 </html>
