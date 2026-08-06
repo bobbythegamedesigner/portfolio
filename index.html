@@ -137,25 +137,8 @@
     align-items: start;
   }
 
-  .hero-photo {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
   .hero-right {
     position: relative;
-  }
-
-  .hero-photo img {
-    width: 200px;
-    height: 220px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 14px;
-    border: 2px solid rgba(200,68,14,0.4);
-    box-shadow: 0 8px 32px rgba(14,13,11,0.12);
-    display: block;
   }
 
   .hero-eyebrow {
@@ -255,10 +238,14 @@
   }
 
   .stat-card {
-    background: var(--white);
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
     border: 1px solid rgba(14,13,11,0.08);
+    position: relative;
+    z-index: 1;
   }
 
   .stat-card.accent {
@@ -872,10 +859,6 @@
       gap: 2.5rem;
     }
 
-    .hero-photo {
-      display: none;
-    }
-
     .hero-stats {
       grid-template-columns: 1fr 1fr;
     }
@@ -956,10 +939,8 @@ My work blends systems, UX/UI and narrative design to turn complex ideas into cl
     </div>
 
     <div class="hero-right">
-      <div class="hero-photo fade-in">
-        <img src="bobby.jpg" alt="Bobby White, Game Designer" />
-      </div>
-      <div class="hero-stats fade-in">
+      <div class="hero-stats fade-in" style="position:relative; background-image:url('bobby.jpg'); background-size:cover; background-position:center top; border-radius:16px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background:rgba(245,243,238,0.82); border-radius:16px;"></div>
       <div class="stat-card">
         <div class="stat-num">8+</div>
         <div class="stat-label">Years of industry experience</div>
