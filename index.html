@@ -1035,25 +1035,28 @@ My work blends systems, UX/UI and narrative design to turn complex ideas into cl
     <!-- Four top cards -->
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;" class="specialisms-top-grid">
 
-      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
+      <div class="specialism-card" style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
         <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--accent); letter-spacing:-0.03em; line-height:1; margin-bottom:1rem;">01</div>
         <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.625rem;">Pitch & Concept Design</div>
         <div style="font-size:0.9375rem; color:rgba(245,243,238,0.65); line-height:1.65;">Client-facing decks, activations, event concepts, branded gameplay loops.</div>
       </div>
+      <div class="specialism-divider"></div>
 
-      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
+      <div class="specialism-card" style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
         <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--accent); letter-spacing:-0.03em; line-height:1; margin-bottom:1rem;">02</div>
         <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.625rem;">UX/UI & Player Journeys</div>
         <div style="font-size:0.9375rem; color:rgba(245,243,238,0.65); line-height:1.65;">Figma flows, greybox interfaces, onboarding, FTUE, feature screens.</div>
       </div>
+      <div class="specialism-divider"></div>
 
-      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
+      <div class="specialism-card" style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
         <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--accent); letter-spacing:-0.03em; line-height:1; margin-bottom:1rem;">03</div>
         <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.625rem;">Narrative & Quest Design</div>
         <div style="font-size:0.9375rem; color:rgba(245,243,238,0.65); line-height:1.65;">Dialogue, quest structure, progression tracks, character framing, event narrative.</div>
       </div>
+      <div class="specialism-divider"></div>
 
-      <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
+      <div class="specialism-card" style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:2rem; transition:border-color 0.2s, background 0.2s; position:relative;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(200,68,14,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='transparent'">
         <div style="font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--accent); letter-spacing:-0.03em; line-height:1; margin-bottom:1rem;">04</div>
         <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.625rem;">Live Game Thinking</div>
         <div style="font-size:0.9375rem; color:rgba(245,243,238,0.65); line-height:1.65;">Analytics, retention, progression, monetisation, Roblox/UEFN platform design.</div>
@@ -1092,32 +1095,34 @@ My work blends systems, UX/UI and narrative design to turn complex ideas into cl
 
 <!-- Add responsive grid rule for specialisms -->
 <style>
+  /* Dividers hidden on desktop — cards are in a grid so dividers would break layout */
+  .specialism-divider {
+    display: none;
+  }
+
   @media (max-width: 900px) {
     .specialisms-top-grid {
       grid-template-columns: repeat(2, 1fr) !important;
     }
   }
+
   @media (max-width: 540px) {
     .specialisms-top-grid {
       display: flex !important;
       flex-direction: column !important;
       gap: 0 !important;
-      align-items: center;
     }
-    .specialisms-top-grid > div {
+    .specialism-card {
       width: 100%;
-      position: relative;
     }
-    /* Short orange line segment between each card */
-    .specialisms-top-grid > div:not(:last-child)::after {
-      content: '';
+    /* Show divider lines between cards on mobile */
+    .specialism-divider {
       display: block;
       width: 2px;
       height: 20px;
       background: rgba(200,68,14,0.5);
       margin: 0 auto;
     }
-    /* Hide desktop SVG, show simple mobile line before AI card */
     .specialisms-connector { display: none !important; }
     .specialisms-mobile-connector { display: block !important; }
   }
